@@ -1,0 +1,5 @@
+1. Enter to your Database or localhost/phpmyadmin; 
+2. Clik "Databases" from the navigation menu;
+3. Enter "The Database name" then choose "utf8_general_ci" then click create
+4. Go to Import Menu -> Choose the database -> Go
+5. Your Database has successfully imported

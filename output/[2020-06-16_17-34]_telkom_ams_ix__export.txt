@@ -1,0 +1,34 @@
+route-map ams-exchange-telkom-in permit 10
+Match rpki invalid
+Set local-preference 80
+
+route-map ams-exchange-telkom-in permit 20
+Match ip address prefix-lists less-equal-slash-24
+Match rpki not-found
+Set local-preference 150
+set community 17451:22234
+
+route-map ams-exchange-telkom-in permit 30
+Match ip address prefix-lists less-equal-slash-24
+Match rpki valid
+Set local-preference 150
+Set community 17451:22234
+
+#========== IP Address 1 ===========#
+neighbor 192.168.0.1 remote-as 123456
+neighbor 192.168.0.1 peer-group ams-ix-peers
+neighbor 192.168.0.1 shutdown
+neighbor 192.168.0.1 description Connection to telkom
+address-family ipv4 unicast
+neighbor 192.168.0.1 activate
+neighbor 192.168.0.1 telkom ams-exchange-telkom-in in
+neighbor 192.168.0.1 maximum-prefix 20 restart 120
+
+#========== IPv6 Address ===========#
+
+neighbor  remote-as 123456
+neighbor  peer-group ams-ix-peers-v6
+neighbor  description Connection to booking
+neighbor  activate
+neighbor  weight 1000
+neighbor  telkom ams-exchange-booking-in in

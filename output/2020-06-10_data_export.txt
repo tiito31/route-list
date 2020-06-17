@@ -1,0 +1,71 @@
+Telkom ams-exchange-Incapsula-in permit 10
+    match rpki invalid
+    set local-preference 80
+
+
+    Telkom ams-exchange-Incapsula-in permit 20
+    Match ip address prefix-lists less-equal-slash-24
+    match rpki not-found
+    Set local-preference 150
+    set community 17451:22234
+
+
+    Telkom ams-exchange-Incapsula-in permit 30
+    Match ip address prefix-lists less-equal-slash-24
+    Match rpki valid
+    Set local-preference 150
+    Set community 17451:22234
+
+    #========== IP Address 1 ===========#
+    neighbor 192.168.100.1 remote-as 112233
+    neighbor 192.168.100.1 peer-group ams-ix-peers
+    neighbor 192.168.100.1 shutdown
+    neighbor 192.168.100.1 description Connection to Incapsula
+    address-family ipv4 unicast
+    neighbor 192.168.100.1 activate
+    neighbor 192.168.100.1 Telkom ams-exchange-Incapsula-in in
+    neighbor 192.168.100.1 maximum-prefix 20 restart 120
+
+    #========== IP Address 2 ===========#
+    neighbor 192.168.100.2 remote-as 112233
+    neighbor 192.168.100.2 peer-group ams-ix-peers
+    neighbor 192.168.100.2 shutdown
+    neighbor 192.168.100.2 description Connection to Incapsula
+    address-family ipv4 unicast
+    neighbor 192.168.100.2 activate
+    neighbor 192.168.100.2 Telkom ams-exchange-Incapsula-in in
+    neighbor 192.168.100.2 maximum-prefix 20 restart 120Telkom2 ams-exchange-Incapsula-in permit 10
+match rpki invalid
+set local-preference 80
+
+Telkom2 ams-exchange-Incapsula-in permit 20
+Match ip address prefix-lists less-equal-slash-24
+match rpki not-found
+Set local-preference 150
+set community 17451:22235
+
+Telkom2 ams-exchange-Incapsula-in permit 30
+Match ip address prefix-lists less-equal-slash-24
+Match rpki valid
+Set local-preference 150
+Set community 17451:22235
+
+#========== IP Address 1 ===========#
+neighbor 192.168.120.1 remote-as 223344
+neighbor 192.168.120.1 peer-group ams-ix-peers
+neighbor 192.168.120.1 shutdown
+neighbor 192.168.120.1 description Connection to Incapsula
+address-family ipv4 unicast
+neighbor 192.168.120.1 activate
+neighbor 192.168.120.1 Telkom2 ams-exchange-Incapsula-in in
+neighbor 192.168.120.1 maximum-prefix 20 restart 120
+
+#========== IP Address 2 ===========#
+neighbor 192.168.120.2 remote-as 223344
+neighbor 192.168.120.2 peer-group ams-ix-peers
+neighbor 192.168.120.2 shutdown
+neighbor 192.168.120.2 description Connection to Incapsula
+address-family ipv4 unicast
+neighbor 192.168.120.2 activate
+neighbor 192.168.120.2 Telkom2 ams-exchange-Incapsula-in in
+neighbor 192.168.120.2 maximum-prefix 20 restart 120
