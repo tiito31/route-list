@@ -56,7 +56,7 @@
                         if (isset($rows)) {
                             foreach ($rows as $key => $value) {
                                 # code...
-                                echo "<option value='" . $value['ix_name'] . "'>" . $value["ix_name"] . "</option>";
+                                echo "<option value='" . $value['ix_name'] . "'>" . $value["ix_desc"] . "</option>";
                             }
                         }
                         ?>
