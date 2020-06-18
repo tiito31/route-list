@@ -115,7 +115,7 @@
                     </tbody>
                     <?php } ?>
                 </table>
-                <?php } ?>
+                <?php } mysqli_close($koneksi); ?>
             </div>
             <!-- <div class="card-body table-responsive">
                 <table class="table table-striped">

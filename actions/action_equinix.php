@@ -13,8 +13,8 @@ $ix = 'equinix';
 // Inserting values to database;
 $sql = "INSERT
           INTO
-        ams_ix
-        VALUES ('','$nama','$as','$ipaddr1','$ipaddr1','$ipaddrv6','$com','$ix')";
+        equinix
+        VALUES ('','$nama','$as','$ipaddr1','$ipaddrv6','$com','$ix')";
 
 if (mysqli_query($koneksi,$sql)) {
     echo "New record inserted successfully";
