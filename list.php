@@ -38,7 +38,86 @@
                 <br>
                 <h5 class="text-center">Form Input</h5>
             </div>
-            <div class="card-body table-responsive">
+            <br>
+            <div class="search-box">
+                <?php
+                include 'conn/connection.php';
+                $sql = "SELECT * FROM ix_list";
+                $res = mysqli_query($koneksi,$sql);
+                $rows = array();
+                while($row = mysqli_fetch_array($res, MYSQLI_ASSOC))
+                $rows[] = $row;
+                {
+                ?>
+                <form action="" method="post">
+                    <select name="ix" id="exChange">
+                        <option value="" selected="selected"> Select Internet Exchange </option>
+                        <?php
+                        if (isset($rows)) {
+                            foreach ($rows as $key => $value) {
+                                # code...
+                                echo "<option value='" . $value['ix_name'] . "'>" . $value["ix_name"] . "</option>";
+                            }
+                        }
+                        ?>
+                    </select>
+                    <button type="submit" id="Filter">Search</button>
+                </form>
+                <?php } ?>
+            </div>
+            <br>
+            <div class=" card-body table-responsive">
+                <?php
+                if (isset($_POST['ix'])) {
+                ?>
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">IP Address 1</th>
+                            <th scope="col">IP Address 2</th>
+                            <th scope="col">IPv6 Address</th>
+                            <th scope="col">As Number</th>
+                            <th scope="col">Community</th>
+                            <th scope="col">OPSI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    $selectOption = $_POST['ix'];
+                    if ($selectOption == 'ams_ix') {
+                        $query = "SELECT * FROM ams_ix";
+                    } elseif ($selectOption == 'paix') {
+                        $query = "SELECT * FROM paix";
+                    } elseif ($selectOption == 'equinix sydney') {
+                        $query = "SELECT * FROM equinix";
+                    } elseif ($selectOption == 'myix') {
+                        $query = "SELECT * FROM myix";
+                    }
+                    $no = 1;
+                    $data = mysqli_query($koneksi,$query);
+                    while($d = mysqli_fetch_array($data)) {
+                    ?>
+                        <tr>
+                            <td><?php echo $no++; ?></td>
+                            <td><?php echo $d['name']; ?></td>
+                            <td><?php echo $d['ip_peering']; ?></td>
+                            <td><?php echo $d['ip_peering_2']; ?></td>
+                            <td><?php echo $d['ipv6_peering']; ?></td>
+                            <td><?php echo $d['as_number']; ?></td>
+                            <td><?php echo $d['community']; ?></td>
+                            <td>
+                                <a href="edit.php?id=<?php echo $d['id']; ?>">EDIT</a>
+                                <!-- <a href="hapus.php?id=<?php echo $d['id']; ?>">HAPUS</a> -->
+                            </td>
+                        </tr>
+                    </tbody>
+                    <?php } ?>
+                </table>
+                <?php } ?>
+            </div>
+            <!-- <div class="card-body table-responsive">
                 <table class="table table-striped">
                     <thead class="thead-dark">
                         <tr>
@@ -68,14 +147,14 @@
                             <td><?php echo $d['community']; ?></td>
                             <td>
                                 <a href="edit.php?id=<?php echo $d['id']; ?>">EDIT</a>
-                                <!-- <a href="hapus.php?id=<?php echo $d['id']; ?>">HAPUS</a> -->
+                                <a href="hapus.php?id=<?php echo $d['id']; ?>">HAPUS</a>
                             </td>
                         </tr>
                         <?php
                     }
                     ?>
                 </table>
-            </div>
+            </div> -->
         </div>
     </div>
 </body>
