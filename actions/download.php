@@ -68,6 +68,8 @@ header('Content-Length: ' . filesize($filename));
 
 readfile($filename);
 
+unlink($file);
+
 exit;
 };
 ?>
