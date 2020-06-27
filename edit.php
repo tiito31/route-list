@@ -21,10 +21,10 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#"" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown08">
-                                <a href="forms/form_ams_ix.php" class="dropdown-item">AMS-IX</a>
-                                <a href="forms/form_paix.php" class="dropdown-item">PAIX</a>
-                                <a href="forms/form_equinix.php" class="dropdown-item">EQUINIX</a>
-                                <a href="forms/form_myix.php" class="dropdown-item">MyIX</a>
+                                <a href="forms/ams_ix.php" class="dropdown-item">AMS-IX</a>
+                                <a href="forms/paix.php" class="dropdown-item">PAIX</a>
+                                <a href="forms/equinix.php" class="dropdown-item">EQUINIX</a>
+                                <a href="forms/myix.php" class="dropdown-item">MyIX</a>
                                 <a class="dropdown-item" href="#">Something else here</a>
                             </div>
                         </li>
