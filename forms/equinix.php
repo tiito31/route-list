@@ -21,10 +21,10 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#"" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown08">
-                                <a href="./form_ams_ix.php" class="dropdown-item">AMS-IX</a>
-                                <a href="./form_paix.php" class="dropdown-item">PAIX</a>
-                                <a href="./form_equinix.php" class="dropdown-item">EQUINIX</a>
-                                <a href="./form_myix.php" class="dropdown-item">MyIX</a>
+                                <a href="./ams_ix.php" class="dropdown-item">AMS-IX</a>
+                                <a href="./paix.php" class="dropdown-item">PAIX</a>
+                                <a href="./equinix.php" class="dropdown-item">EQUINIX</a>
+                                <a href="./myix.php" class="dropdown-item">MyIX</a>
                                 <a class="dropdown-item" href="#">Something else here</a>
                             </div>
                         </li>
@@ -44,7 +44,7 @@
                 $data = mysqli_query($koneksi,'select community from ams_ix order by community DESC limit 1');
                 while($d = mysqli_fetch_array($data)){
                 ?>
-                <form action="../actions/action_amx_ix.php" method="POST" style="text-align: center;">
+                <form action="../actions/action_equinix.php" method="POST" style="text-align: center;">
                     <div class="form-group">
                         <div class="row">
                             <div class="col">
