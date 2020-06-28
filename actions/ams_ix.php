@@ -9,19 +9,15 @@ $ipaddr1 = $_POST['ipaddr1'];
 $ipaddr2 = $_POST['ipaddr2'] ?? NULL;
 $ipaddrv6 = $_POST['ipaddrv6'] ?? NULL;
 $com = $_POST['com'];
-$ix = 'ams';
+$ix = 'ams_ix';
 
 // Inserting values to database;
 $sql = "INSERT
           INTO
         ams_ix
-        VALUES ('','$nama','$as','$ipaddr1','$ipaddrv6','$com','$ix')";
+        VALUES ('','$nama','$as','$ipaddr1','$ipaddr2','$ipaddrv6','$com','$ix')";
 
 if (mysqli_query($koneksi,$sql)) {
-    echo "New record inserted successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($koneksi);
-}
 
 // Create an output text file from the inputs;
 // Set a name & directory file for the ouput;
@@ -114,6 +110,9 @@ readfile($filename);
 unlink($file);
 
 exit;
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($koneksi);
+}
 
 mysqli_close($koneksi);
 // Redirect to;

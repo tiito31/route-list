@@ -14,13 +14,9 @@ $ix = 'equinix';
 $sql = "INSERT
           INTO
         equinix
-        VALUES ('','$nama','$as','$ipaddr1','$ipaddrv6','$com','$ix')";
+        VALUES ('','$nama','$as','$ipaddr1','$ipaddr2','$ipaddrv6','$com','$ix')";
 
 if (mysqli_query($koneksi,$sql)) {
-    echo "New record inserted successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($koneksi);
-}
 
 // Create an output text file from the inputs;
 // Set a name & directory file for the ouput;
@@ -113,6 +109,9 @@ readfile($filename);
 unlink($file);
 
 exit;
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($koneksi);
+}
 
 mysqli_close($koneksi);
 // Redirect to;
