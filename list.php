@@ -107,8 +107,9 @@
                             <td><?php echo $d['ipv6_peering']; ?></td>
                             <td><?php echo $d['as_number']; ?></td>
                             <td><?php echo $d['community']; ?></td>
+                            <td hidden> <?php echo $d['ix_name']; ?></td>
                             <td>
-                                <a href="edit.php?id=<?php echo $d['id']; ?>">EDIT</a>
+                                <a href="edit.php?id=<?php echo $d['id']; ?>&ix_name=<?php echo $d['ix_name']; ?>">EDIT</a>
                                 <a href="actions/download.php?id=<?php echo $d['id']; ?>">DOWNLOAD</a>
                             </td>
                         </tr>

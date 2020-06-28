@@ -42,7 +42,8 @@
                 <?php
                 include 'conn/connection.php';
                 $id = $_GET['id'];
-                $data = mysqli_query($koneksi,"select * from ams_ix where id ='$id' ");
+                $table = $_GET['ix_name'];
+                $data = mysqli_query($koneksi,"select * from ".$table." where id ='$id' ");
                 while($d = mysqli_fetch_array($data)){
                 ?>
                 <form action="actions/update.php" method="POST" style="text-align: center;">
