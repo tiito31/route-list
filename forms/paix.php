@@ -44,7 +44,7 @@
                 $data = mysqli_query($koneksi,'select community from paix order by community DESC limit 1');
                 while($d = mysqli_fetch_array($data)){
                 ?>
-                <form action="../actions/action_paix.php" method="POST" style="text-align: center;">
+                <form action="../actions/paix.php" method="POST" style="text-align: center;">
                     <div class="form-group">
                         <div class="row">
                             <div class="col">
