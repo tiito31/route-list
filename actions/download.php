@@ -45,7 +45,7 @@ address-family ipv4 unicast
 neighbor ". $ipaddr1 ." activate
 neighbor ". $ipaddr1 ." $nama ams-exchange-". $nama ."-in in
 neighbor ". $ipaddr1 ." maximum-prefix 20 restart 120\n
-#========== IPv6 Address ===========#\n
+#========== IPv6 Address ===========#
 neighbor ". $ipaddrv6 ." remote-as ". $as ."
 neighbor ". $ipaddrv6 ." peer-group ams-ix-peers-v6
 neighbor ". $ipaddrv6 ." description Connection to booking

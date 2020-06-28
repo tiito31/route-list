@@ -41,7 +41,7 @@
             <div class="card-body">
                 <?php
                 include '../conn/connection.php';
-                $data = mysqli_query($koneksi,'select community from ams_ix order by community DESC limit 1');
+                $data = mysqli_query($koneksi,'select community from paix order by community DESC limit 1');
                 while($d = mysqli_fetch_array($data)){
                 ?>
                 <form action="../actions/action_paix.php" method="POST" style="text-align: center;">
@@ -60,7 +60,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="row">
+                        <div class="row"></div>
                             <div class="col">
                                 <!-- Input Ip address 1 -->
                                 <label for=""> IP Address 1</label>
