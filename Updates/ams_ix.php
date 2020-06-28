@@ -13,7 +13,7 @@ $com = $_POST['com'];
 $ix = $_POST['ix_name'];
 
 // Update data to database;
-$sql = "UPDATE ".$ix."
+$sql = "UPDATE ams_ix
            SET name='$nama',
                as_number='$as',
                ip_peering='$ipaddr1',
@@ -24,10 +24,6 @@ $sql = "UPDATE ".$ix."
            WHERE id='$id'";
 
 if (mysqli_query($koneksi,$sql)) {
-    echo "record updated successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($koneksi);
-}
 
 // Create an output text file from the inputs;
 // Set a name & directory file for the ouput;
@@ -149,6 +145,9 @@ if(empty($ipaddrv6) AND empty($ipaddr2)){
 
 file_put_contents($file, $data) or die("Unable to open file!");
 
+// Get to the last page;
+header("location:../list.php");
+
 $filename = $file;
 header('Pragma: public');
 header('Expires: 0');
@@ -166,7 +165,9 @@ unlink($file);
 
 exit;
 
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($koneksi);
+}
+
 mysqli_close($koneksi);
-// Get to the last page;
-header("location:../list.php");
 ?>
