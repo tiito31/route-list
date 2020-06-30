@@ -60,7 +60,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="row"></div>
+                        <div class="row">
                             <div class="col">
                                 <!-- Input Ip address 1 -->
                                 <label for=""> IP Address 1</label>
