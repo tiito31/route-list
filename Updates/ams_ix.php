@@ -7,10 +7,10 @@ $id = $_POST['id'];
 $nama = $_POST['nm'];
 $as = $_POST['as_nm'];
 $ipaddr1 = $_POST['ipaddr1'];
-$ipaddr2 = $_POST['ipaddr2'];
-$ipaddrv6 =  $_POST['ipaddrv6'];
+$ipaddr2 = $_POST['ipaddr2'] ?? null;
+$ipaddrv6 =  $_POST['ipaddrv6'] ?? null;
 $com = $_POST['com'];
-$ix = $_POST['ix_name'];
+$ix = 'ams_ix';
 
 // Update data to database;
 $sql = "UPDATE ams_ix
@@ -144,9 +144,6 @@ if(empty($ipaddrv6) AND empty($ipaddr2)){
 }
 
 file_put_contents($file, $data) or die("Unable to open file!");
-
-// Get to the last page;
-header("location:../list.php");
 
 $filename = $file;
 header('Pragma: public');

@@ -7,13 +7,13 @@ $id = $_POST['id'];
 $nama = $_POST['nm'];
 $as = $_POST['as_nm'];
 $ipaddr1 = $_POST['ipaddr1'];
-$ipaddr2 = $_POST['ipaddr2'];
-$ipaddrv6 =  $_POST['ipaddrv6'];
+$ipaddr2 = $_POST['ipaddr2'] ?? 'NULL';
+$ipaddrv6 =  $_POST['ipaddrv6'] ?? 'NULL';
 $com = $_POST['com'];
-$ix = $_POST['ix_name'];
+$ix = 'myix';
 
 // Update data to database;
-$sql = "UPDATE ams_ix
+$sql = "UPDATE myix
            SET name='$nama',
                as_number='$as',
                ip_peering='$ipaddr1',

@@ -86,7 +86,7 @@
                         <input type="text" name="com" class="form-control" value="<?php echo substr($d['community'],0,5).':'.strval((int)(substr($d['community'],6))+1); ?>" readonly>
                     </div>
                     <!-- Button submit -->
-                    <button type="submit" name="submit" class="btn btn-sm btn-primary btn-btn-block"> Submit! </button>
+                    <button type="submit" name="submit" onclick="redirect()" class="btn btn-sm btn-primary btn-btn-block"> Submit! </button>
                 </form>
             </div>
             <?php } ?>
@@ -95,6 +95,12 @@
     <script>
         document.getElementById('yourBox').onchange = function() {
             document.getElementById('yourText').disabled = !this.checked;
+        };
+        
+        function redirect(){
+            setTimeout(function(){
+                window.location = '../list.php';
+            }, 5000);
         };
     </script>
 </body>

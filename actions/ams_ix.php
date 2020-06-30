@@ -110,11 +110,10 @@ readfile($filename);
 unlink($file);
 
 exit;
+
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($koneksi);
 }
 
 mysqli_close($koneksi);
-// Redirect to;
-header('location:../list.php');
 ?>

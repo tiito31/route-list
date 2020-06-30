@@ -10,7 +10,7 @@ $ipaddr1 = $_POST['ipaddr1'];
 $ipaddr2 = $_POST['ipaddr2'];
 $ipaddrv6 =  $_POST['ipaddrv6'];
 $com = $_POST['com'];
-$ix = $_POST['ix_name'];
+$ix = 'equinix';
 
 // Update data to database;
 $sql = "UPDATE equinix
